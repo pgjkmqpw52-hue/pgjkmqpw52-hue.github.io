@@ -7,14 +7,12 @@
 @use "sass:math";
 @use "sass:string";
 
-/* Configure your design tokens BEFORE loading any of your partials.
-   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+/* Configure your design tokens BEFORE loading any of your partials. */
 @use "variables" with (
-  $max-content-width: {{ site.max_width | default:  "930px" }}
+  $max-content-width: {{ site.max_width | default: "1100px" }}
 );
 
-/* Your project partials — convert these files to `@use "variables";`
-   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+/* Your project partials */
 @use "themes";
 @use "layout";
 
@@ -37,3 +35,98 @@
 @use "font-awesome/brands";
 @use "font-awesome/solid";
 @use "font-awesome/regular";
+
+/*******************************************************************************
+ * MI2 CENTER - EPIC VISUAL ENGINE
+ * Custom styles for the Manifold-Constrained aesthetic.
+ ******************************************************************************/
+
+// 1. Global Manifold Background & Glow
+body {
+  background-color: #0f172a !important; // Forces Slate 900
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 217, 255, 0.08) 0px, transparent 40%),
+    radial-gradient(at 100% 100%, rgba(88, 28, 135, 0.08) 0px, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d9ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+// 2. The "Epic" Hero Section
+.hero-title-epic {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 30%, #00d9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+// 3. Implementation Notice Cards (Research Papers)
+.implementation-notice {
+  background: rgba(30, 41, 59, 0.5) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 217, 255, 0.15) !important;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    border-color: rgba(0, 217, 255, 0.5) !important;
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.1);
+    transform: translateY(-4px);
+  }
+
+  h3, h4 {
+    color: #ffffff !important;
+    margin-top: 0;
+  }
+
+  .tech-note {
+    background: rgba(2, 6, 23, 0.6);
+    border-left: 2px solid #00d9ff;
+    padding: 1rem;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.85rem;
+    color: #00d9ff;
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
+  }
+}
+
+// 4. Proprietary Status Badge
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  color: #00d9ff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+// 5. Patent Alert (Amber Glow)
+.patent-alert {
+  background: rgba(251, 191, 36, 0.05);
+  border: 1px dashed rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+// Ensure the navbar fits the dark theme
+.navbar {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
