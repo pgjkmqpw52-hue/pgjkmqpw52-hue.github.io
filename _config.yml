@@ -20,8 +20,8 @@ lang: en
 icon: 💠 # High-tech diamond icon
 
 # Update these to your actual URL when ready
-url: https://moralcrow.org
-baseurl: "" 
+url: "https://manifold-constrained.github.io"
+baseurl: ""
 last_updated: true
 back_to_top: true
 
