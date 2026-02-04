@@ -95,7 +95,7 @@ imagemagick:
 
 plugins:
   - jekyll-feed
-  - jekyll-imagemagick
+  - # jekyll-imagemagick
   - jekyll-sitemap
   - jekyll/scholar
   - jemoji
